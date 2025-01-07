@@ -15,70 +15,43 @@ public class LoginOperation {
         }
     }
 
+    // Validasi Login
     public String validateLogin(String username, String password) {
-        // Logika khusus untuk admin login
         if (username.equals(ADMIN_USERNAME) && password.equals(ADMIN_PASSWORD)) {
-            return "admin"; // Admin login berhasil
+            return "admin";
         }
-
-        // Validasi untuk pengguna biasa di database
-        return validateUser(username, password);
+        return validateTenant(username, password);
     }
 
-    public String validateUser(String username, String password) {
-        if (isUsernameValid(username) && isPasswordValid(username, password)) {
-            return getRole(username);
-        }
-        return null;
-    }
-
-    public boolean isUsernameValid(String username) {
-        String query = "SELECT username FROM users WHERE username = ?";
-        try (PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setString(1, username);
-            ResultSet rs = stmt.executeQuery();
-            return rs.next();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-    public boolean isPasswordValid(String username, String password) {
-        String query = "SELECT password FROM users WHERE username = ? AND password = ?";
+    // Validasi Penghuni (User Default)
+    private String validateTenant(String username, String password) {
+        String query = "SELECT username FROM account WHERE username = ? AND password = ?";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, username);
             stmt.setString(2, password);
-            ResultSet rs = stmt.executeQuery();
-            return rs.next();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-    public String getRole(String username) {
-        String query = "SELECT role FROM users WHERE username = ?";
-        try (PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setString(1, username);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                return rs.getString("role");
+                return "user"; // Role default penghuni
             }
         } catch (SQLException e) {
+            System.err.println("Error validating tenant login.");
             e.printStackTrace();
         }
         return null;
     }
 
-    public void addUser(String username, String password) {
-        String query = "INSERT INTO users (username, password, role) VALUES (?, ?, 'user')";
+    // Tambah Akun Penghuni
+    public void addUser(int id_account, String name, String username, String password) {
+        String query = "INSERT INTO account (id_account, name, username, password) VALUES (?, ?, ?, ?)";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setString(1, username);
-            stmt.setString(2, password);
+            stmt.setInt(1, id_account);
+            stmt.setString(2, name);
+            stmt.setString(3, username);
+            stmt.setString(4, password);
             stmt.executeUpdate();
-            System.out.println("User added successfully!");
+            System.out.println("Pengguna baru berhasil ditambahkan ke tabel 'account'!");
         } catch (SQLException e) {
+            System.err.println("Gagal menambahkan pengguna ke tabel 'account'.");
             e.printStackTrace();
         }
     }

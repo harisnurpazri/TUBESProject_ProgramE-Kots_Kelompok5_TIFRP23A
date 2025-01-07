@@ -1,5 +1,8 @@
 package login;
 
+import Administrator.AdminView;
+import TenantUser.TenantView; 
+import TenantUser.TenantView;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -54,45 +57,20 @@ public class LoginView {
             return;
         }
 
-        // Validasi login
         String role = loginOperations.validateLogin(username, password);
 
         if (role == null) {
             showError("Login gagal. Periksa username atau password.");
         } else if ("admin".equals(role)) {
             showSuccess("Welcome Admin!");
-            stage.setScene(getAdminDashboard(stage));
+            AdminView adminview = new AdminView();
+            adminview.show(stage);
         } else if ("user".equals(role)) {
-            showSuccess("Welcome User!");
-            stage.setScene(new Scene(new Label("User Dashboard"), 800, 400));
+            showSuccess("Welcome Penghuni!");
+            TenantView tenantView = new TenantView();
+            tenantView.show(stage);
+        }
     }
-}
-
-
-        private Scene getAdminDashboard(Stage stage) {
-        VBox adminRoot = new VBox(20);
-        adminRoot.setAlignment(Pos.CENTER);
-        adminRoot.setStyle("-fx-background-color: #e0f7fa; -fx-padding: 40px;");
-
-        Label title = new Label("Admin Dashboard");
-        title.setFont(new Font("Arial Bold", 32));
-        title.setTextFill(Color.DARKBLUE);
-
-        Button logoutButton = new Button("Logout");
-        logoutButton.setOnAction(event -> stage.setScene(new Scene(getView(stage), 400, 500)));
-
-        adminRoot.getChildren().addAll(title, logoutButton);
-
-        Scene scene = new Scene(adminRoot, 800, 600);
-
-        // Pusatkan window di layar
-        stage.setWidth(800);
-        stage.setHeight(600);
-        stage.centerOnScreen(); // Pastikan stage dipusatkan di layar
-
-        return scene;
-    }
-
 
     private void showSuccess(String message) {
         showAlert(Alert.AlertType.INFORMATION, "Success", message);

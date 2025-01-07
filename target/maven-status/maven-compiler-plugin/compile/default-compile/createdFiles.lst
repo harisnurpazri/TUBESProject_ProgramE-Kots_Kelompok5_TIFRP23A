@@ -2,5 +2,7 @@ login\LoginView.class
 com\mycompany\electronic_kostprogram\DatabaseConnection.class
 login\LoginProcess.class
 module-info.class
+TenantUser\TenantView.class
 login\LoginOperation.class
 com\mycompany\electronic_kostprogram\App.class
+Administrator\AdminView.class
