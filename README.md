@@ -41,7 +41,7 @@
 <p>![tampilan e kost](https://github.com/user-attachments/assets/37dce033-8891-4c6d-bb96-b89cdb863017).</p>
 
 ## Tampilan Aplikasi
-![image alt](![pict1]https://github.com/user-attachments/assets/ce482c64-6a0d-414e-8467-98e0b0302f9a?raw=true)
+![](![pict1]https://github.com/user-attachments/assets/ce482c64-6a0d-414e-8467-98e0b0302f9a?raw=true)
 
 ## Demo Proyek
 <ul>
