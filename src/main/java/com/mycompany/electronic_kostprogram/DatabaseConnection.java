@@ -1,44 +1,31 @@
 package com.mycompany.electronic_kostprogram;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.Connection; // Mengimpor kelas Connection dari pustaka JDBC
+import java.sql.DriverManager; // Mengimpor kelas DriverManager dari pustaka JDBC
+import java.sql.SQLException; // Mengimpor kelas SQLException dari pustaka JDBC
 
 public class DatabaseConnection {
-
-    private static final String URL = "jdbc:mysql://localhost:3306/electronic_kost";
+    // URL koneksi database MySQL
+    private static final String URL = "jdbc:mysql://localhost:3306/kost_management";
     private static final String USER = "root";
     private static final String PASSWORD = "";
 
+    // Variabel statis untuk menyimpan objek Connection
     private static Connection connection;
 
-    static {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            System.out.println("Database connection established successfully.");
-        } catch (ClassNotFoundException e) {
-            System.err.println("JDBC Driver not found.");
-            e.printStackTrace();
-        } catch (SQLException e) {
-            System.err.println("Database connection failed. Check URL, username, or password.");
-            e.printStackTrace();
-        }
-    }
-
+    // Metode untuk mendapatkan koneksi database
     public static Connection getConnection() {
-        return connection;
-    }
-
-    public static void closeConnection() {
-        if (connection != null) {
+        // Jika koneksi belum dibuat, buat koneksi baru
+        if (connection == null) {
             try {
-                connection.close();
-                System.out.println("Database connection closed.");
+                // Membuat koneksi ke database menggunakan URL, username, dan password
+                connection = DriverManager.getConnection(URL, USER, PASSWORD);
             } catch (SQLException e) {
-                System.err.println("Failed to close database connection.");
+                // Menampilkan stack trace jika terjadi kesalahan SQL
                 e.printStackTrace();
             }
         }
+        // Mengembalikan objek Connection
+        return connection;
     }
 }

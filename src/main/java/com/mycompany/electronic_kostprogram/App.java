@@ -1,27 +1,34 @@
 package com.mycompany.electronic_kostprogram;
 
-import java.io.IOException;
-import javafx.application.Application;
-import static javafx.application.Application.launch;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import login.LoginView;
+import view.LoginView; // Mengimpor kelas LoginView dari paket view
+import javafx.application.Application; // Mengimpor kelas Application dari JavaFX
+import javafx.scene.Scene; // Mengimpor kelas Scene dari JavaFX
+import javafx.stage.Stage; // Mengimpor kelas Stage dari JavaFX
 
 public class App extends Application {
 
+    // Metode start yang dijalankan saat aplikasi dimulai
     @Override
     public void start(Stage primaryStage) {
-        LoginView loginView = new LoginView();
-        Scene scene = new Scene(loginView.getView(primaryStage), 400, 400);
+        // Membuat objek LoginView dan meneruskan primaryStage sebagai parameter
+        LoginView loginView = new LoginView(primaryStage);
         
-        primaryStage.setTitle("Login System");
+        // Membuat objek Scene dengan ukuran 400x300 piksel dan menambahkan komponen dari LoginView
+        Scene scene = new Scene(loginView.getView(), 400, 300);
+        
+        // Mengatur judul jendela utama aplikasi
+        primaryStage.setTitle("Kost Management App");
+        
+        // Menetapkan scene sebagai tampilan utama dari primaryStage
         primaryStage.setScene(scene);
+        
+        // Menampilkan jendela utama aplikasi
         primaryStage.show();
     }
-    
+
+    // Metode main yang merupakan titik masuk dari aplikasi
     public static void main(String[] args) {
+        // Memulai siklus hidup aplikasi JavaFX dengan memanggil metode launch
         launch(args);
     }
 }
