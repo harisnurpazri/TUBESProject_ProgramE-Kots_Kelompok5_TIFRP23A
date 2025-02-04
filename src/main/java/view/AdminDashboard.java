@@ -914,14 +914,21 @@ public class AdminDashboard {
     private void deleteRoom() {
         Room selectedRoom = roomTable.getSelectionModel().getSelectedItem();
         if (selectedRoom != null) {
+            // Check if the room status is "isi"
+            if ("isi".equalsIgnoreCase(selectedRoom.getStatus())) {
+                showAlert("Error", "Kamar tidak dapat dihapus karena statusnya adalah 'isi'.");
+                return; // Exit the method if the room status is "isi"
+            }
+
             try {
                 roomOperations.deleteRoom(selectedRoom.getIdRoom());
                 roomTable.getItems().remove(selectedRoom);
             } catch (SQLException e) {
                 e.printStackTrace();
+                showAlert("Error", "Terjadi kesalahan saat menghapus kamar.");
             }
         } else {
-           showAlert("Error", "Pilih Kamar yang akan dihapus.");
+            showAlert("Error", "Pilih Kamar yang akan dihapus.");
         }
     }
 
