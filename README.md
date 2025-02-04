@@ -41,7 +41,7 @@
 <p>![tampilan e kost](https://github.com/user-attachments/assets/37dce033-8891-4c6d-bb96-b89cdb863017).</p>
 
 ## Tampilan Aplikasi
-<p>Lorem ipsum sir dolor amet.</p>
+<p>![alt text](https://drive.google.com/file/d/12jjh6pCdBPeXtYjV7VvBWCZ-guuDYGUK/view?usp=drivesdk?raw=true)</p>
 
 ## Demo Proyek
 <ul>
