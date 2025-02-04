@@ -43,6 +43,8 @@
 ## Tampilan Aplikasi
 [Tampilan Login]![pict1](https://github.com/user-attachments/assets/576c4afd-adf4-4fcf-bb86-8710345edad5)
 
+[Tampilan]![pict2](https://github.com/user-attachments/assets/021ec25d-e327-457e-a63e-2daa68709800)
+
 ## Demo Proyek
 <ul>
   <li>Github: <a href="https://github.com/harisnurpazri/TUBESProject_ProgramE-Kots_Kelompok5_TIFRP23A/tree/main">Github</a></li>
