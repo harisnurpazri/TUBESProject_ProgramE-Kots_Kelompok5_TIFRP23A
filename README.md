@@ -41,7 +41,7 @@
 <p>![tampilan e kost](https://github.com/user-attachments/assets/37dce033-8891-4c6d-bb96-b89cdb863017).</p>
 
 ## Tampilan Aplikasi
-![Tampilan Login](![pict1](https://github.com/user-attachments/assets/576c4afd-adf4-4fcf-bb86-8710345edad5)
+[Tampilan Login]![pict1](https://github.com/user-attachments/assets/576c4afd-adf4-4fcf-bb86-8710345edad5)
 
 ## Demo Proyek
 <ul>
