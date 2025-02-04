@@ -45,6 +45,6 @@
 
 ## Demo Proyek
 <ul>
-  <li>Github: <a href="">Github</a></li>
+  <li>Github: <a href="https://github.com/harisnurpazri/TUBESProject_ProgramE-Kots_Kelompok5_TIFRP23A/tree/main">Github</a></li>
   <li>Youtube: <a href="">Youtube</a></li>
 </ul>
