@@ -41,10 +41,10 @@
 <p>![tampilan e kost](https://github.com/user-attachments/assets/37dce033-8891-4c6d-bb96-b89cdb863017).</p>
 
 ## Tampilan Aplikasi
-<p>Lorem ipsum sir dolor amet.</p>
+![alt text](![pict1](https://github.com/user-attachments/assets/d5d4a095-003e-418b-97aa-12a8643e4be8)?raw=true)
 
 ## Demo Proyek
 <ul>
-  <li>Github: <a href="">Github</a></li>
+  <li>Github: <a href="https://github.com/harisnurpazri/TUBESProject_ProgramE-Kots_Kelompok5_TIFRP23A/tree/main">Github</a></li>
   <li>Youtube: <a href="">Youtube</a></li>
 </ul>
