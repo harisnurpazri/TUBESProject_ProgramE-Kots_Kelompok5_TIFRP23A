@@ -85,6 +85,9 @@ Alasan Penggunaan Inheritance:
   
 Implementasi Encapsulation dalam Kode: 
 1.	Dalam kelas Room:
+### Room.java
+
+```java
 public class Room {
     private IntegerProperty idRoom;
     private StringProperty facilities;
@@ -161,7 +164,10 @@ public class Room {
     }
 }
 
-2.	Dalam kelas Message:
+3.	Dalam kelas Message:
+### Massage.java
+
+```java
 public class Message {
     private IntegerProperty idMessage;
     private IntegerProperty idTenant;
@@ -224,20 +230,10 @@ public class Message {
     }
 }
 
-3. Dalam kelas Admin:
+4. Dalam kelas Admin:
    ### Admin.java
 
 ```java
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-import javafx.beans.property.IntegerProperty;
-
-public class Admin extends User {
-    private final StringProperty kostAddress;
-    private final StringProperty accountName;
-    private final StringProperty accountNumber;
-
-    // Konstruktor
     public Admin(int idAdmin, String kostAddress, String accountName, String accountNumber) {
         super(idAdmin); // Memanggil konstruktor parent class
         this.kostAddress = new SimpleStringProperty(kostAddress);
@@ -300,6 +296,9 @@ public class Admin extends User {
     }
 }
 5. Dalam Kelas Tagihan:
+### Bill.java
+
+```java
    public class Bill {
     private IntegerProperty idTransaction;
     private IntegerProperty idTenant;
@@ -405,6 +404,9 @@ public class Admin extends User {
 }
 
 6. Dalam Kelas Login:
+### Login.java
+
+```java
    public class Login {
     private final IntegerProperty idAccount;
     private final StringProperty name;
