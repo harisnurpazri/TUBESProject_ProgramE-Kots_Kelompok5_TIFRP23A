@@ -7,7 +7,7 @@
 ## Kelompok
 <ul>
   <li>Kelompok: {Kelompok 5}</li>
-  <li>Proyek: {Elektronik Kost}</li>
+  <li>Proyek: {Sistem Pengelolaan Kost}</li>
   <li>Anggota:</li>
   <ul>
     <li>Ketua: <a href="https://github.com/harisnurpazri">Haris Nurpazri</a></li>
@@ -26,16 +26,604 @@
 ## Penjelasan 4 Pilar OOP dalam Studi Kasus
 
 ### 1. Inheritance
-<p>Kelas Pengguna merupakan kelas induk dengan atribut umum seperti username dan password. Kelas turunan seperti kelas Admin dan User mewarisi atribut tersebut, dan memiliki fitur dasar seperti KelolaPesan() dan KelolaTagihan().</p>
+<p>Inheritance memungkinkan suatu kelas untuk mewarisi atribut dan metode dari kelas lain. Dalam kode ini, kelas Admin dan Tenant mewarisi sifat dari kelas User, sehingga tidak perlu menulis ulang atribut dan metode yang sama.
+
+Implementasi Inheritance dalam Kode:
+1.	Kelas User sebagai Parent Class:
+public class User {
+    private final IntegerProperty idUser;
+    public User(int idUser) {
+        this.idUser = new SimpleIntegerProperty(idUser);
+    }
+    public int getIdUser() {
+        return idUser.get();
+    }
+    public IntegerProperty idUserProperty() {
+        return idUser;
+    }
+}
+
+2.	Kelas Admin sebagai Child Class:
+public class Admin extends User {
+    private final StringProperty kostAddress;
+    private final StringProperty accountName;
+    private final StringProperty accountNumber;
+
+    public Admin(int idAdmin, String kostAddress, String accountName, String accountNumber) {
+        super(idAdmin);
+        this.kostAddress = new SimpleStringProperty(kostAddress);
+        this.accountName = new SimpleStringProperty(accountName);
+        this.accountNumber = new SimpleStringProperty(accountNumber);
+    }
+}
+
+3.	Kelas Tenant sebagai Child Class:
+public class Tenant extends User {
+    private StringProperty name;
+    private StringProperty phoneNumber;
+    private StringProperty address;
+    private IntegerProperty idRoom;
+    private DoubleProperty roomPrice;
+    private ObjectProperty<Date> checkInDate;
+    private ObjectProperty<Date> payDate;
+
+    public Tenant(int idTenant, String name, String phoneNumber, String address, 
+                 int idRoom, double roomPrice, Date checkInDate, Date payDate) {
+        super(idTenant);
+    }
+}
+
+Alasan Penggunaan Inheritance:
+<li> Penggunaan inheritance dalam kode ini sangat masuk akal karena Admin dan Tenant pada dasarnya adalah tipe User dengan tambahan karakteristik masing-masing</li>
+<li>Kode jadi lebih efisien karena tidak perlu menulis ulang properti dan method yang sama di setiap kelas</li> 
+<li>Struktur data jadi lebih rapi dan mudah dipahami - semua yang berhubungan dengan identitas user dikelompokkan dalam satu kelas induk</li>
+<li>Memudahkan maintenance - jika ada perubahan pada properti atau method user, cukup ubah di kelas User</li>
+.</p>
 
 ### 2. Encapsulation
-<p>Informasi tentang data KelolaKamarKost() disembunyikan dalam kelas kamar kost yang hanya dapat diakses melalui metode setKamarKost().</p>
+<p>Encapsulation memastikan bahwa data dalam suatu objek tidak bisa diakses langsung dari luar kelasnya. Ini dilakukan dengan menjadikan atribut private dan menyediakan method getter dan setter untuk mengakses atau mengubah nilainya.
+  
+Implementasi Encapsulation dalam Kode: 
+1.	Dalam kelas Room:
+public class Room {
+    private IntegerProperty idRoom;
+    private StringProperty facilities;
+    private StringProperty size;
+    private DoubleProperty roomPrice;
+    private StringProperty status;
+
+    public Room(int idRoom, String facilities, String size, double roomPrice, String status) {
+        this.idRoom = new SimpleIntegerProperty(idRoom);
+        this.facilities = new SimpleStringProperty(facilities);
+        this.size = new SimpleStringProperty(size);
+        this.roomPrice = new SimpleDoubleProperty(roomPrice);
+        this.status = new SimpleStringProperty(status);
+    }
+
+    public int getIdRoom() {
+        return idRoom.get();
+    }
+
+    public IntegerProperty idRoomProperty() {
+        return idRoom;
+    }
+
+    public void setIdRoom(int idRoom) {
+        this.idRoom.set(idRoom);
+    }
+
+    public String getFacilities() {
+        return facilities.get();
+    }
+
+    public StringProperty facilitiesProperty() {
+        return facilities;
+    }
+
+    public void setFacilities(String facilities) {
+        this.facilities.set(facilities);
+    }
+
+    public String getSize() {
+        return size.get();
+    }
+
+    public StringProperty sizeProperty() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size.set(size);
+    }
+
+    public double getRoomPrice() {
+        return roomPrice.get();
+    }
+
+    public DoubleProperty roomPriceProperty() {
+        return roomPrice;
+    }
+
+    public void setRoomPrice(double roomPrice) {
+        this.roomPrice.set(roomPrice);
+    }
+
+    public String getStatus() {
+        return status.get();
+    }
+
+    public StringProperty statusProperty() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status.set(status);
+    }
+}
+
+2.	Dalam kelas Message:
+public class Message {
+    private IntegerProperty idMessage;
+    private IntegerProperty idTenant;
+    private StringProperty name;
+    private StringProperty message;
+
+    public Message(int idMessage, int idTenant, String name, String message) {
+        this.idMessage = new SimpleIntegerProperty(idMessage);
+        this.idTenant = new SimpleIntegerProperty(idTenant);
+        this.name = new SimpleStringProperty(name);
+        this.message = new SimpleStringProperty(message);
+    }
+
+    public int getIdMessage() {
+        return idMessage.get();
+    }
+
+    public IntegerProperty idMessageProperty() {
+        return idMessage;
+    }
+
+    public void setIdMessage(int idMessage) {
+        this.idMessage.set(idMessage);
+    }
+
+    public int getIdTenant() {
+        return idTenant.get();
+    }
+
+    public IntegerProperty idTenantProperty() {
+        return idTenant;
+    }
+
+    public void setIdTenant(int idTenant) {
+        this.idTenant.set(idTenant);
+    }
+
+    public String getName() {
+        return name.get();
+    }
+
+    public StringProperty nameProperty() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name.set(name);
+    }
+
+    public String getMessage() {
+        return message.get();
+    }
+
+    public StringProperty messageProperty() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message.set(message);
+    }
+}
+
+3. Dalam kelas Admin:
+   public Admin(int idAdmin, String kostAddress, String accountName, String accountNumber) {
+        super(idAdmin);
+        this.kostAddress = new SimpleStringProperty(kostAddress);
+        this.accountName = new SimpleStringProperty(accountName);
+        this.accountNumber = new SimpleStringProperty(accountNumber);
+    }
+
+    // Metode getter untuk alamat kost
+    public String getkostAddress() {
+        return kostAddress.get();
+    }
+
+    // Metode untuk mendapatkan properti alamat kost
+    public StringProperty kostAddressProperty() {
+        return kostAddress;
+    }
+
+    // Metode getter untuk nama akun
+    public String getaccountName() {
+        return accountName.get();
+    }
+
+    // Metode untuk mendapatkan properti nama akun
+    public StringProperty accountNameProperty() {
+        return accountName;
+    }
+
+    // Metode getter untuk nomor akun
+    public String getaccountNumber() {
+        return accountNumber.get();
+    }
+
+    // Metode untuk mendapatkan properti nomor akun
+    public StringProperty accountNumberProperty() {
+        return accountNumber;
+    }
+
+    // Metode setter untuk alamat kost
+    public void setkostAddress(String kostAddress) {
+        this.kostAddress.set(kostAddress);
+    }
+
+    // Metode setter untuk nama akun
+    public void setaccountName(String accountName) {
+        this.accountName.set(accountName);
+    }
+
+    // Metode setter untuk nomor akun
+    public void setaccountNumber(String accountNumber) {
+        this.accountNumber.set(accountNumber);
+    }
+
+    public int getIdAdmin() {
+        return getIdUser();
+    }
+
+    public IntegerProperty idAdminProperty() {
+        return idUserProperty();
+    }
+}
+5. Dalam Kelas Tagihan:
+   public class Bill {
+    private IntegerProperty idTransaction;
+    private IntegerProperty idTenant;
+    private StringProperty name;
+    private IntegerProperty idRoom;
+    private DoubleProperty roomPrice;
+    private ObjectProperty<Date> paymentDate;
+    private DoubleProperty amountPaid;
+
+    public Bill(int idTransaction, int idTenant, String name, int idRoom, double roomPrice, Date paymentDate, double amountPaid) {
+        this.idTransaction = new SimpleIntegerProperty(idTransaction);
+        this.idTenant = new SimpleIntegerProperty(idTenant);
+        this.name = new SimpleStringProperty(name);
+        this.idRoom = new SimpleIntegerProperty(idRoom);
+        this.roomPrice = new SimpleDoubleProperty(roomPrice);
+        this.paymentDate = new SimpleObjectProperty<>(paymentDate);
+        this.amountPaid = new SimpleDoubleProperty(amountPaid);
+    }
+
+    public int getIdTransaction() {
+        return idTransaction.get();
+    }
+
+    public IntegerProperty idTransactionProperty() {
+        return idTransaction;
+    }
+
+    public void setIdTransaction(int idTransaction) {
+        this.idTransaction.set(idTransaction);
+    }
+
+    public int getIdTenant() {
+        return idTenant.get();
+    }
+
+    public IntegerProperty idTenantProperty() {
+        return idTenant;
+    }
+
+    public void setIdTenant(int idTenant) {
+        this.idTenant.set(idTenant);
+    }
+
+    public String getName() {
+        return name.get();
+    }
+
+    public StringProperty nameProperty() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name.set(name);
+    }
+
+    public int getIdRoom() {
+        return idRoom.get();
+    }
+
+    public IntegerProperty idRoomProperty() {
+        return idRoom;
+    }
+
+    public void setIdRoom(int idRoom) {
+        this.idRoom.set(idRoom);
+    }
+
+    public double getRoomPrice() {
+        return roomPrice.get();
+    }
+
+    public DoubleProperty roomPriceProperty() {
+        return roomPrice;
+    }
+
+    public void setRoomPrice(double roomPrice) {
+        this.roomPrice.set(roomPrice);
+    }
+
+    public Date getPaymentDate() {
+        return paymentDate.get();
+    }
+
+    public ObjectProperty<Date> paymentDateProperty() {
+        return paymentDate;
+    }
+
+    public void setPaymentDate(Date paymentDate) {
+        this.paymentDate.set(paymentDate);
+    }
+
+    public double getAmountPaid() {
+        return amountPaid.get();
+    }
+
+    public DoubleProperty amountPaidProperty() {
+        return amountPaid;
+    }
+
+    public void setAmountPaid(double amountPaid) {
+        this.amountPaid.set(amountPaid);
+    }
+}
+
+6. Dalam Kelas Login:
+   public class Login {
+    private final IntegerProperty idAccount;
+    private final StringProperty name;
+    private final StringProperty username;
+    private final StringProperty password;
+    private final StringProperty role;
+
+    public Login(int idAccount, String name, String username, String password, String role) {
+        this.idAccount = new SimpleIntegerProperty(idAccount);
+        this.name = new SimpleStringProperty(name);
+        this.username = new SimpleStringProperty(username);
+        this.password = new SimpleStringProperty(password);
+        this.role = new SimpleStringProperty(role);
+    }
+
+    public int getIdAccount() {
+        return idAccount.get();
+    }
+
+    public IntegerProperty idAccountProperty() {
+        return idAccount;
+    }
+
+    public void setIdAccount(int idAccount) {
+        this.idAccount.set(idAccount);
+    }
+
+    public String getName() {
+        return name.get();
+    }
+
+    public StringProperty nameProperty() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name.set(name);
+    }
+
+    public String getUsername() {
+        return username.get();
+    }
+
+    public StringProperty usernameProperty() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username.set(username);
+    }
+
+    public String getPassword() {
+        return password.get();
+    }
+
+    public StringProperty passwordProperty() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password.set(password);
+    }
+
+    public String getRole() {
+        return role.get();
+    }
+
+    public StringProperty roleProperty() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role.set(role);
+    }
+}
+
+7. Dalam Kelas User:
+   public class User {
+    
+    private final IntegerProperty idUser;
+
+    public User(int idUser) {
+        this.idUser = new SimpleIntegerProperty(idUser);
+    }
+
+    public int getIdUser() {
+        return idUser.get();
+    }
+
+    public IntegerProperty idUserProperty() {
+        return idUser;
+    }
+}
+
+Alasan Penggunaan Encapsulation:
+<li>Keamanan data terjamin karena akses langsung ke properti dibatasi</li>
+<li>Memudahkan validasi data - bisa menambahkan logika validasi dalam setter method</li>
+<li>Perubahan internal kelas tidak mempengaruhi kode di luar kelas</li>
+<li>Kode lebih fleksibel untuk dimodifikasi karena implementasi detail tersembunyi</li>
+.</p>
 
 ### 3. Polymorphism
-<p>Pengguna adalah kelas abstrak yang memiliki fitur khusus kelolaAkun(). Metode ini nantinya akan diimplementasikan oleh kelas spesifik seperti kelas Admin.</p>
+<p>Polymorphism memungkinkan method dengan nama yang sama memiliki perilaku berbeda tergantung objek yang memanggilnya. Dalam kode ini, Admin dan Tenant mengoverride method getIdUser()
+  
+Implementasi Polymorphism dalam Kode:
+1.	Method Overriding di kelas Admin:
+public class Admin extends User {
+    public int getIdAdmin() {
+        return getIdUser(); 
+    }
+
+    public IntegerProperty idAdminProperty() {
+        return idUserProperty();
+    }
+}
+
+2.	Method Overriding di kelas Tenant:
+public class Tenant extends User {
+    public int getIdTenant() {
+        return getIdUser(); 
+    }
+
+    public IntegerProperty idTenantProperty() {
+        return idUserProperty();
+    }
+}
+Alasan Penggunaan Polymorphism:
+<li>Meningkatkan kejelasan kode karena method yang sama bisa bekerja dengan cara berbeda</li>
+<li>Method bisa disesuaikan dengan kebutuhan spesifik masing-masing kelas</li>
+<li>Kode jadi lebih fleksibel dan mudah dikembangkan</li>
+<li>Memudahkan maintenance karena perubahan perilaku cukup dilakukan di kelas yang relevan</li>
+
+.</p>
 
 ### 4. Abstract
-<p>Metode seperti KelolaPesan() berperilaku berbeda untuk Admin dan User, masing masing memiliki kendali yang berbeda berdasarkan peran mereka. Admin memiliki akses lebih luas seperti mengelola semua pesan yang masuk, sementara User hanya dapat mengakses pesan yang relevan dengan dirinya.</p>
+<p>Abstraction menyembunyikan detail implementasi dan hanya menyediakan fungsionalitas yang diperlukan. Dalam kode ini, kelas RoomOperations dan LoginOperations menyembunyikan detail akses database dari pengguna.
+  
+Implementasi Abstraction dalam Kode:
+1.	Dalam kelas RoomOperations:
+public class RoomOperations {
+    private Connection connection;
+
+    public List<Room> getAllRooms() throws SQLException {
+        List<Room> rooms = new ArrayList<>();
+        String query = "SELECT * FROM room_info";
+        try (PreparedStatement statement = connection.prepareStatement(query);
+             ResultSet resultSet = statement.executeQuery()) {
+            while (resultSet.next()) {
+
+            }
+        }
+        return rooms;
+    }
+
+    public void addRoom(Room room) throws SQLException {
+        String query = "INSERT INTO room_info (Facilities, Size, Room_Price, Status) VALUES (?, ?, ?, ?)";
+
+    }
+}
+
+2.	Dalam kelas LoginOperations:
+public class LoginOperations {
+    private Connection connection;
+
+    public boolean authenticate(String username, String password) throws SQLException {
+        String query = "SELECT * FROM login WHERE Username = ? AND Password = ?";
+
+    }
+
+    public String getRole(String username) throws SQLException {
+        String query = "SELECT Role FROM login WHERE Username = ?";
+
+    }
+}
+
+3. Dalam Kelas AdminOperations
+   public class AdminOperations {
+    private Connection connection;
+
+    public AdminOperations() throws SQLException {
+        this.connection = DatabaseConnection.getConnection();
+    }
+
+    public List<Admin> getAllAdmins() throws SQLException {
+        List<Admin> admins = new ArrayList<>(); 
+        String query = "SELECT * FROM admin_info"; 
+      
+    }
+
+4. Dalam Kelas BillOperations
+   public class BillOperations {
+    private Connection connection;
+    private TenantOperations tenantOperations;
+
+    public BillOperations() throws SQLException {
+        this.connection = DatabaseConnection.getConnection();
+        this.tenantOperations = new TenantOperations();
+    }
+
+    public List<Bill> getAllBills() throws SQLException {
+        List<Bill> bills = new ArrayList<>();
+        String query = "SELECT * FROM bills";
+   
+   5. Dalam Kelas MassageOperations
+   public class MessageOperations {
+    private Connection connection;
+
+    public MessageOperations() throws SQLException {
+        this.connection = DatabaseConnection.getConnection();
+    }
+    public List<Message> getMessagesByTenantId(int tenantId) throws SQLException {
+        List<Message> messages = new ArrayList<>();
+        String query = "SELECT * FROM messages WHERE ID_Tenant = ?";
+   
+   6. Dalam Kelas TenantOperations
+   public class TenantOperations {
+    private Connection connection;
+
+    public TenantOperations() throws SQLException {
+        this.connection = DatabaseConnection.getConnection();
+    }
+
+    public List<Tenant> getAllTenants() throws SQLException {
+        String query = "SELECT * FROM tenant_info";
+        List<Tenant> tenants = new ArrayList<>();
+
+Alasan Penggunaan Abstraction:
+<li>Menyederhanakan penggunaan sistem - pengguna tidak perlu tahu cara data disimpan atau diproses</li>
+<li>Kode lebih mudah dipahami karena kompleksitas tersembunyi di balik method sederhana</li>
+<li>Memudahkan perubahan implementasi tanpa mengubah cara penggunaan</li>
+Pengelolaan error jadi lebih terstruktur
+
+</p>
 
 ## Struktur Tabel Aplikasi
 
@@ -72,5 +660,5 @@
 ## Demo Proyek
 <ul>
   <li>Github: <a href="https://github.com/harisnurpazri/TUBESProject_ProgramE-Kots_Kelompok5_TIFRP23A/tree/main">Github</a></li>
-  <li>Youtube: <a href="">Youtube</a></li>
+  <li>Youtube: <a href="">[Youtube](https://youtu.be/MUAwDbUnADI)</a></li>
 </ul>
