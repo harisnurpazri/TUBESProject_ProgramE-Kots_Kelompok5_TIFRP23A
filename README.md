@@ -655,9 +655,11 @@ public class LoginOperations {
     public List<Bill> getAllBills() throws SQLException {
         List<Bill> bills = new ArrayList<>();
         String query = "SELECT * FROM bills";
+
+```
    
    5. Dalam Kelas MassageOperations:
-    ### MessageOperations.java
+### MessageOperations.java
 
 ```java
    public class MessageOperations {
