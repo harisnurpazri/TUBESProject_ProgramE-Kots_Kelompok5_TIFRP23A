@@ -273,19 +273,19 @@ public class TenantDashboard {
         idAdminColumn.setCellValueFactory(cellData -> cellData.getValue().idUserProperty().asObject());
         idAdminColumn.setStyle("-fx-font-size: 12px;");
 
-        TableColumn<Admin, String> nameColumn = new TableColumn<>("Alamat Kost");
-        nameColumn.setCellValueFactory(cellData -> cellData.getValue().kostAddressProperty());
-        nameColumn.setStyle("-fx-font-size: 12px;");
+        TableColumn<Admin, String> kostaddressColumn = new TableColumn<>("Alamat Kost");
+        kostaddressColumn.setCellValueFactory(cellData -> cellData.getValue().kostAddressProperty());
+        kostaddressColumn.setStyle("-fx-font-size: 12px;");
 
-        TableColumn<Admin, String> phoneNumberColumn = new TableColumn<>("Nama Akun");
-        phoneNumberColumn.setCellValueFactory(cellData -> cellData.getValue().accountNameProperty());
-        phoneNumberColumn.setStyle("-fx-font-size: 12px;");
+        TableColumn<Admin, String> accountnameColumn = new TableColumn<>("Nama Akun");
+        accountnameColumn.setCellValueFactory(cellData -> cellData.getValue().accountNameProperty());
+        accountnameColumn.setStyle("-fx-font-size: 12px;");
 
-        TableColumn<Admin, String> emailColumn = new TableColumn<>("Nomor Akun");
-        emailColumn.setCellValueFactory(cellData -> cellData.getValue().accountNumberProperty());
-        emailColumn.setStyle("-fx-font-size: 12px;");
+        TableColumn<Admin, String> accountnumberColumn = new TableColumn<>("Nomor Akun");
+        accountnumberColumn.setCellValueFactory(cellData -> cellData.getValue().accountNumberProperty());
+        accountnumberColumn.setStyle("-fx-font-size: 12px;");
 
-        adminTable.getColumns().addAll(idAdminColumn, nameColumn, phoneNumberColumn, emailColumn);
+        adminTable.getColumns().addAll(idAdminColumn, kostaddressColumn, accountnameColumn, accountnumberColumn);
 
         try {
             List<Admin> admins = adminOperations.getAllAdmins();
