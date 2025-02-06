@@ -30,6 +30,9 @@
 
 Implementasi Inheritance dalam Kode:
 1.	Kelas User sebagai Parent Class:
+   ### User.java
+
+```java
 public class User {
     private final IntegerProperty idUser;
     public User(int idUser) {
@@ -43,7 +46,11 @@ public class User {
     }
 }
 
-2.	Kelas Admin sebagai Child Class:
+```
+3.	Kelas Admin sebagai Child Class:
+   ### Admin.java
+
+```java
 public class Admin extends User {
     private final StringProperty kostAddress;
     private final StringProperty accountName;
@@ -57,7 +64,11 @@ public class Admin extends User {
     }
 }
 
-3.	Kelas Tenant sebagai Child Class:
+```
+5.	Kelas Tenant sebagai Child Class:
+   ### Tenant.java
+
+```java
 public class Tenant extends User {
     private StringProperty name;
     private StringProperty phoneNumber;
@@ -73,6 +84,7 @@ public class Tenant extends User {
     }
 }
 
+```
 Alasan Penggunaan Inheritance:
 <li> Penggunaan inheritance dalam kode ini sangat masuk akal karena Admin dan Tenant pada dasarnya adalah tipe User dengan tambahan karakteristik masing-masing</li>
 <li>Kode jadi lebih efisien karena tidak perlu menulis ulang properti dan method yang sama di setiap kelas</li> 
@@ -164,6 +176,7 @@ public class Room {
     }
 }
 
+```
 3.	Dalam kelas Message:
 ### Massage.java
 
@@ -230,6 +243,7 @@ public class Message {
     }
 }
 
+```
 4. Dalam kelas Admin:
    ### Admin.java
 
@@ -295,6 +309,8 @@ public class Message {
         return idUserProperty();
     }
 }
+
+```
 5. Dalam Kelas Tagihan:
 ### Bill.java
 
@@ -403,6 +419,7 @@ public class Message {
     }
 }
 
+```
 6. Dalam Kelas Login:
 ### Login.java
 
@@ -483,7 +500,11 @@ public class Message {
     }
 }
 
+```
 7. Dalam Kelas User:
+   ### User.java
+
+```java
    public class User {
     
     private final IntegerProperty idUser;
@@ -501,6 +522,7 @@ public class Message {
     }
 }
 
+```
 Alasan Penggunaan Encapsulation:
 <li>Keamanan data terjamin karena akses langsung ke properti dibatasi</li>
 <li>Memudahkan validasi data - bisa menambahkan logika validasi dalam setter method</li>
@@ -513,6 +535,9 @@ Alasan Penggunaan Encapsulation:
   
 Implementasi Polymorphism dalam Kode:
 1.	Method Overriding di kelas Admin:
+   ### Admin.java
+
+```java
 public class Admin extends User {
     public int getIdAdmin() {
         return getIdUser(); 
@@ -523,7 +548,11 @@ public class Admin extends User {
     }
 }
 
-2.	Method Overriding di kelas Tenant:
+```
+3.	Method Overriding di kelas Tenant:
+   ### Tenant.java
+
+```java
 public class Tenant extends User {
     public int getIdTenant() {
         return getIdUser(); 
@@ -533,6 +562,8 @@ public class Tenant extends User {
         return idUserProperty();
     }
 }
+
+```
 Alasan Penggunaan Polymorphism:
 <li>Meningkatkan kejelasan kode karena method yang sama bisa bekerja dengan cara berbeda</li>
 <li>Method bisa disesuaikan dengan kebutuhan spesifik masing-masing kelas</li>
@@ -546,6 +577,9 @@ Alasan Penggunaan Polymorphism:
   
 Implementasi Abstraction dalam Kode:
 1.	Dalam kelas RoomOperations:
+   ### RoomOperations.java
+
+```java
 public class RoomOperations {
     private Connection connection;
 
@@ -567,7 +601,11 @@ public class RoomOperations {
     }
 }
 
+```
 2.	Dalam kelas LoginOperations:
+   ### LoginOperations.java
+
+```java
 public class LoginOperations {
     private Connection connection;
 
@@ -582,7 +620,11 @@ public class LoginOperations {
     }
 }
 
-3. Dalam Kelas AdminOperations
+```
+3. Dalam Kelas AdminOperations:
+   ### AdminOperations.java
+
+```java
    public class AdminOperations {
     private Connection connection;
 
@@ -596,7 +638,11 @@ public class LoginOperations {
       
     }
 
-4. Dalam Kelas BillOperations
+```
+4. Dalam Kelas BillOperations:
+   ### BillOperations.java
+
+```java
    public class BillOperations {
     private Connection connection;
     private TenantOperations tenantOperations;
@@ -610,7 +656,10 @@ public class LoginOperations {
         List<Bill> bills = new ArrayList<>();
         String query = "SELECT * FROM bills";
    
-   5. Dalam Kelas MassageOperations
+   5. Dalam Kelas MassageOperations:
+     ### Massage Operations.java
+
+```java
    public class MessageOperations {
     private Connection connection;
 
@@ -621,7 +670,11 @@ public class LoginOperations {
         List<Message> messages = new ArrayList<>();
         String query = "SELECT * FROM messages WHERE ID_Tenant = ?";
    
-   6. Dalam Kelas TenantOperations
+```
+   6. Dalam Kelas TenantOperations:
+      ### TenantOperations.java
+
+```java
    public class TenantOperations {
     private Connection connection;
 
@@ -632,7 +685,7 @@ public class LoginOperations {
     public List<Tenant> getAllTenants() throws SQLException {
         String query = "SELECT * FROM tenant_info";
         List<Tenant> tenants = new ArrayList<>();
-
+```
 ## Alasan Penggunaan Abstraction:
 <p>
 <li>Menyederhanakan penggunaan sistem - pengguna tidak perlu tahu cara data disimpan atau diproses</li>
@@ -641,7 +694,6 @@ public class LoginOperations {
 Pengelolaan error jadi lebih terstruktur
 
 </p>
-```
 
 ## Struktur Tabel Aplikasi
 
