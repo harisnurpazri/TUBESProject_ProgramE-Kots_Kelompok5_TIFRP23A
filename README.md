@@ -47,7 +47,7 @@ public class User {
 }
 
 ```
-3.	Kelas Admin sebagai Child Class:
+2.	Kelas Admin sebagai Child Class:
    ### Admin.java
 
 ```java
@@ -65,7 +65,7 @@ public class Admin extends User {
 }
 
 ```
-5.	Kelas Tenant sebagai Child Class:
+3.	Kelas Tenant sebagai Child Class:
    ### Tenant.java
 
 ```java
@@ -177,7 +177,7 @@ public class Room {
 }
 
 ```
-3.	Dalam kelas Message:
+2.	Dalam kelas Message:
 ### Massage.java
 
 ```java
@@ -244,7 +244,7 @@ public class Message {
 }
 
 ```
-4. Dalam kelas Admin:
+3. Dalam kelas Admin:
    ### Admin.java
 
 ```java
@@ -311,7 +311,7 @@ public class Message {
 }
 
 ```
-5. Dalam Kelas Tagihan:
+4. Dalam Kelas Tagihan:
 ### Bill.java
 
 ```java
@@ -420,7 +420,7 @@ public class Message {
 }
 
 ```
-6. Dalam Kelas Login:
+5. Dalam Kelas Login:
 ### Login.java
 
 ```java
@@ -501,7 +501,7 @@ public class Message {
 }
 
 ```
-7. Dalam Kelas User:
+6. Dalam Kelas User:
    ### User.java
 
 ```java
@@ -549,7 +549,7 @@ public class Admin extends User {
 }
 
 ```
-3.	Method Overriding di kelas Tenant:
+2.	Method Overriding di kelas Tenant:
    ### Tenant.java
 
 ```java
