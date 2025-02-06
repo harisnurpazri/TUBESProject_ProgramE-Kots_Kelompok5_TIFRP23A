@@ -225,58 +225,72 @@ public class Message {
 }
 
 3. Dalam kelas Admin:
-   public Admin(int idAdmin, String kostAddress, String accountName, String accountNumber) {
-        super(idAdmin);
+   ### Admin.java
+
+```java
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import javafx.beans.property.IntegerProperty;
+
+public class Admin extends User {
+    private final StringProperty kostAddress;
+    private final StringProperty accountName;
+    private final StringProperty accountNumber;
+
+    // Konstruktor
+    public Admin(int idAdmin, String kostAddress, String accountName, String accountNumber) {
+        super(idAdmin); // Memanggil konstruktor parent class
         this.kostAddress = new SimpleStringProperty(kostAddress);
         this.accountName = new SimpleStringProperty(accountName);
         this.accountNumber = new SimpleStringProperty(accountNumber);
     }
 
-    // Metode getter untuk alamat kost
-    public String getkostAddress() {
+    // Getter untuk alamat kost
+    public String getKostAddress() {
         return kostAddress.get();
     }
 
-    // Metode untuk mendapatkan properti alamat kost
+    // Properti alamat kost
     public StringProperty kostAddressProperty() {
         return kostAddress;
     }
 
-    // Metode getter untuk nama akun
-    public String getaccountName() {
+    // Setter untuk alamat kost
+    public void setKostAddress(String kostAddress) {
+        this.kostAddress.set(kostAddress);
+    }
+
+    // Getter untuk nama akun
+    public String getAccountName() {
         return accountName.get();
     }
 
-    // Metode untuk mendapatkan properti nama akun
+    // Properti nama akun
     public StringProperty accountNameProperty() {
         return accountName;
     }
 
-    // Metode getter untuk nomor akun
-    public String getaccountNumber() {
+    // Setter untuk nama akun
+    public void setAccountName(String accountName) {
+        this.accountName.set(accountName);
+    }
+
+    // Getter untuk nomor akun
+    public String getAccountNumber() {
         return accountNumber.get();
     }
 
-    // Metode untuk mendapatkan properti nomor akun
+    // Properti nomor akun
     public StringProperty accountNumberProperty() {
         return accountNumber;
     }
 
-    // Metode setter untuk alamat kost
-    public void setkostAddress(String kostAddress) {
-        this.kostAddress.set(kostAddress);
-    }
-
-    // Metode setter untuk nama akun
-    public void setaccountName(String accountName) {
-        this.accountName.set(accountName);
-    }
-
-    // Metode setter untuk nomor akun
-    public void setaccountNumber(String accountNumber) {
+    // Setter untuk nomor akun
+    public void setAccountNumber(String accountNumber) {
         this.accountNumber.set(accountNumber);
     }
 
+    // Overriding metode dari parent class
     public int getIdAdmin() {
         return getIdUser();
     }
