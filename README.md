@@ -657,7 +657,7 @@ public class LoginOperations {
         String query = "SELECT * FROM bills";
    
    5. Dalam Kelas MassageOperations:
-     ### Massage Operations.java
+    ### MessageOperations.java
 
 ```java
    public class MessageOperations {
