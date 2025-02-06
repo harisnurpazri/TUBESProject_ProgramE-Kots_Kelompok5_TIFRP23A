@@ -38,7 +38,6 @@
 <p>Metode seperti KelolaPesan() berperilaku berbeda untuk Admin dan User, masing masing memiliki kendali yang berbeda berdasarkan peran mereka. Admin memiliki akses lebih luas seperti mengelola semua pesan yang masuk, sementara User hanya dapat mengakses pesan yang relevan dengan dirinya.</p>
 
 ## Struktur Tabel Aplikasi
-<p>![tampilan e kost](https://github.com/user-attachments/assets/37dce033-8891-4c6d-bb96-b89cdb863017).</p>
 
 [Desain Tabel Database]![pict11](https://github.com/user-attachments/assets/b74adf9d-bdfc-461f-990e-0482739acaf5)
 
