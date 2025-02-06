@@ -633,7 +633,8 @@ public class LoginOperations {
         String query = "SELECT * FROM tenant_info";
         List<Tenant> tenants = new ArrayList<>();
 
-Alasan Penggunaan Abstraction:
+## Alasan Penggunaan Abstraction:
+<p>
 <li>Menyederhanakan penggunaan sistem - pengguna tidak perlu tahu cara data disimpan atau diproses</li>
 <li>Kode lebih mudah dipahami karena kompleksitas tersembunyi di balik method sederhana</li>
 <li>Memudahkan perubahan implementasi tanpa mengubah cara penggunaan</li>
