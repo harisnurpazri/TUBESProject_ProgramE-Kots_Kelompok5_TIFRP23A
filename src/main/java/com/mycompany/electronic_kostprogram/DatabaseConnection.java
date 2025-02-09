@@ -6,7 +6,7 @@ import java.sql.SQLException; // Mengimpor kelas SQLException dari pustaka JDBC
 
 public class DatabaseConnection {
     // URL koneksi database MySQL
-    private static final String URL = "jdbc:mysql://localhost:3306/kost_management";
+    private static final String URL = "jdbc:mysql://localhost:3306/training_kost";
     private static final String USER = "root";
     private static final String PASSWORD = "";
 

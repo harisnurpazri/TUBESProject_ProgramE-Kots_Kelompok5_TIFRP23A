@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 03, 2025 at 04:17 PM
+-- Generation Time: Feb 09, 2025 at 09:23 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -123,7 +123,7 @@ CREATE TABLE `tenant_info` (
   `ID_Room` int DEFAULT NULL,
   `Room_Price` decimal(10,2) DEFAULT NULL,
   `Check_In_Date` date DEFAULT NULL,
-  `Check_Out_Date` date DEFAULT NULL
+  `Pay_Date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
