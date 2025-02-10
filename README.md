@@ -699,7 +699,7 @@ Pengelolaan error jadi lebih terstruktur
 
 ## Struktur Tabel Aplikasi
 
-[Desain Tabel Database][Screenshot 2025-02-09 162826](https://github.com/user-attachments/assets/a1ff06d6-6263-4413-b086-106907fa8724)
+[Desain Tabel Database]![Screenshot 2025-02-09 162826](https://github.com/user-attachments/assets/a1ff06d6-6263-4413-b086-106907fa8724)
 
 
 
